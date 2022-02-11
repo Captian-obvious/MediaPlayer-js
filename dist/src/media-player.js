@@ -35,8 +35,22 @@ class MediaPlayerElementNode {
             },
         })
     },
-    createPlayer: function() {
-        var container = document.getElementsByTagName("player")[0]
-        
+    createPlayer: function(container) {
+        container.innerHTML = `
+        <canvas id="canvas"></canvas>
+        <div id="main">
+            <div id="album">
+                <div id="MediaPlayerControls">
+                    <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src"></div>
+                    <div id="sound_options" class="MediaPlayerIcon icon-volume">
+                        <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" />
+                    </div>
+                </div>
+                <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0">
+                <div id="time-position"></div>
+            </div>
+        </div>
+        `
+        require("./player.js")
     },
 }
