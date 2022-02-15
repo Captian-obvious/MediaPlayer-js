@@ -20,6 +20,12 @@ class player {
     },
     playFile: function(file) {
         var button = document.getElementById("Media-Player-Icon-icon-play");
+        audio.addEventListener('play', function() {
+            button.className="Media-Player-Icon icon-play";
+        });
+        audio.addEventListener('pause' function() {
+            button.className="Media-Player-Icon icon-pause";
+        });
         button.addEventListener('click',function() {
             if (button.className=="Media-Player-Icon icon-play") {
                 audio.pause();
