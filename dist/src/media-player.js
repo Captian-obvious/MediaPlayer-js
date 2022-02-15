@@ -15,8 +15,8 @@ class MediaPlayerElementNode {
         ID3.read(file, {
             onSuccess: function (tag) {
                 console.log(tag);
-                data = tag.tags.picture.data,
-                format = tag.tags.picture.format,
+                var data = tag.tags.picture.data;
+                var format = tag.tags.picture.format;
                 var url = "";
                 if (data.length != 0 && format != null) {
                     let str = "";
