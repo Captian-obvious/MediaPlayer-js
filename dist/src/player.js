@@ -22,8 +22,22 @@ class player {
         var button = document.getElementById("Media-Player-Icon-icon-play");
         button.addEventListener('click',function() {
             if (button.className=="Media-Player-Icon icon-play") {
-            
+                audio.pause();
+            }else{
+                audio.play();
             };
-        })
+        });
+        button.setAttribute("data-mediathumb-url", URL.createObjectURL(file));
+        var SRC = dataimage.getAttribute("data-mediathumb-url");
+        audio.src = SRC;
+        audio.load();
+        var input = file.name;
+        if (filetitle.textContent != "Unknown Artist - " + file.name) {
+            filetitle.textContent = "Unknown Artist - " + file.name;
+        };
+        if (album.style.backgroundImage != "url(../../images/default/default-album-icon.png)") {
+            album.style.backgroundImage = "url(../../images/default/default-album-icon.png)";
+        };
+        audio.play();
     },
 };
