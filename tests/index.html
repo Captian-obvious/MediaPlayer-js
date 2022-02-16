@@ -1,4 +1,19 @@
 <html>
-    <head></head>
-    <body></body>
+    <head>
+        <link rel="stylesheet" href="./dist/css/player.css" />
+        <script src="./dist/src/media-player.js"></script>
+    </head>
+    <body>
+        <input id="thefile"/>
+        <div id="container"></div>
+        <script nouce="88478347399hwehe888663ehf873636535">
+            MediaPlayer.createPlayer(document.getElementById('container'));
+            if (typeof(window.player)==='undefined') {
+                MediaPlayer.createPlayer(document.getElementById('container'));
+            };
+            document.getElementById("thefile").addEventListener('change', function() {
+                player.playFile(this.files[0]);
+            });
+        </script>
+    </body>
 </html>
