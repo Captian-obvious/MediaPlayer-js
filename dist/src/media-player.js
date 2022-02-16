@@ -39,6 +39,8 @@ class MediaPlayerElementNode {
     },
     createPlayer: function(container) {
         container.innerHTML = `
+        <label id="filename" for="thefile">Choose Audio file or drag file here.</label>
+        <div id="dropzone"></div>
         <canvas id="canvas"></canvas>
         <div id="main">
             <div id="album">
@@ -55,4 +57,5 @@ class MediaPlayerElementNode {
         `
         require("./player.js")
     },
-}
+};
+window.MediaPlayer = MediaPlayerElementNode;
