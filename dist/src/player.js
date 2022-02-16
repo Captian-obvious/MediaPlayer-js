@@ -51,7 +51,7 @@ window.player = {
         var context = new AudioContext;
         console.log(context);
         var vol = document.getElementById('Media-Player-Control-volume');
-        var 
+        var position = document.getElementById('time-position');
         var src = context.createMediaElementSource(audio);
         var analyser = context.createAnalyser();
         var loud = 0;
