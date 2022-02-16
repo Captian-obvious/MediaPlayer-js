@@ -3,13 +3,6 @@ var MediaPlayerElementNode = {
     volume = 0,
     sourceElement = null,
     currentTrack = 0,
-    createElementSource: function(element) {
-        if (sourceElement===null) {
-            sourceElement = element;
-        }else{
-            throw TypeError("Cannot connect this node to another source element!")
-        };
-    },
     readFile: function(file) {
         var returns = null;
         ID3.read(file, {
