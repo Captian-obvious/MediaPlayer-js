@@ -20,7 +20,24 @@ class player {
         return returns;
     },
     getRMS: function(arr) {
-        
+        var square = 0;
+        var mean = 0;
+        var val = 0;
+        var rms = 0;
+        var n = arr.length;
+
+        // Calculate square.
+        for (var i = 0; i < n; i++) {
+            square += Math.pow(arr[i], 2);
+        }
+
+        // Calculate Mean.
+        mean = square / n;
+        // Calculate Root.
+        val = Math.sqrt(mean);
+        player.maxRMS = Math.max(rms, player.maxRMS)
+        rms = (val/player.maxRMS)*255
+        return rms;
     },
     playFile: function(file) {
         if (typeof(window.a)==='undefined') {
@@ -112,7 +129,7 @@ class player {
             }
             ctx.beginPath();
             ctx.arc(centerX, centerY, rad, 0, Math.PI * 2, false);
-            ctx.fillStyle = "rgb(" + calcRMSColor(loud) + ", " + calcRMSColor(loud) + ",0)";
+            ctx.fillStyle = "rgb(" + loud + ", " + loud + ",0)";
             ctx.fill();
             ctx.closePath()
         };
