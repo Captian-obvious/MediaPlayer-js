@@ -1,4 +1,5 @@
 class player {
+    maxRMS = 0,
     formatTime: function(x,h) {
         var returns = null;
         var minutes = Math.floor(x/60);
@@ -17,6 +18,9 @@ class player {
             returns = minutes+":"+seconds;
         };
         return returns;
+    },
+    getRMS: function(arr) {
+        
     },
     playFile: function(file) {
         if (typeof(window.a)==='undefined') {
