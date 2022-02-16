@@ -73,7 +73,7 @@ class player {
         a.play();
         var context = new AudioContext;
         console.log(context);
-        var vol = document.getElementById('Media-Player-Control-volume');
+        var vol = document.getElementById('MediaPlayerControl-volume');
         var position = document.getElementById('time-position');
         var src = context.createMediaElementSource(audio);
         var analyser = context.createAnalyser();
