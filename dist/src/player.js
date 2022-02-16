@@ -1,4 +1,4 @@
-class player {
+window.player = {
     formatTime: function(x,h) {
         var returns = null;
         var minutes = Math.floor(x/60);
@@ -22,15 +22,15 @@ class player {
         if (typeof(window.a)==='undefined') {
             window.a = new Audio();
         };
-        var button = document.getElementById("Media-Player-Icon-icon-play");
+        var button = document.getElementById("MediaPlayerIcon-icon-play");
         a.addEventListener('play', function() {
-            button.className="Media-Player-Icon icon-play";
+            button.className="MediaPlayerIcon icon-play";
         });
         a.addEventListener('pause' function() {
-            button.className="Media-Player-Icon icon-pause";
+            button.className="MediaPlayerIcon icon-pause";
         });
         button.addEventListener('click',function() {
-            if (button.className=="Media-Player-Icon icon-play") {
+            if (button.className=="MediaPlayerIcon icon-play") {
                 a.pause();
             }else{
                 a.play();
