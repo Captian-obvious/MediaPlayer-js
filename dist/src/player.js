@@ -1,4 +1,4 @@
-class player {
+window.player = {
     maxRMS = 0,
     formatTime: function(x,h) {
         var returns = null;
@@ -146,4 +146,3 @@ class player {
         });
     },
 };
-window.player = player;
