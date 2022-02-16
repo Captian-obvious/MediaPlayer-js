@@ -71,8 +71,8 @@ class player {
             album.style.backgroundImage = "url(../../images/default/default-album-icon.png)";
         };
         var tags = MediaPlayer.readFile(file);
-        if (filetitle.textContent != tags.Artist" - " + tags.Title) {
-            filetitle.textContent = tags.Artist" - " + tags.Title;
+        if (filetitle.textContent != tags.artist" - " + tags.title) {
+            filetitle.textContent = tags.artist" - " + tags.title;
         };
         if (album.style.backgroundImage != "url("+tags.image+")") {
             album.style.backgroundImage = "url("+tags.image+")";
