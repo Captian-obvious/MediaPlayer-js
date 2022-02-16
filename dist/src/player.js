@@ -1,4 +1,4 @@
-window.player = {
+class player {
     formatTime: function(x,h) {
         var returns = null;
         var minutes = Math.floor(x/60);
@@ -37,7 +37,9 @@ window.player = {
             };
         });
         button.setAttribute("data-mediathumb-url", URL.createObjectURL(file));
-        var SRC = dataimage.getAttribute("data-mediathumb-url");
+        var album = document.getElementById('album');
+        var filetitle = document.getElementById('filename');
+        var SRC = button.getAttribute("data-mediathumb-url");
         audio.src = SRC;
         audio.load();
         var input = file.name;
@@ -77,14 +79,14 @@ window.player = {
         var HEIGHT = canvas.height;
         var barWidth = WIDTH / bufferLength;
         var barHeight;
-        function renderFrame(){
+        function renderFrame() {
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(dataArray);
             analyser.getByteTimeDomainData(dataArray1);
-            var curtime = player.formatTime(a.currentTime);
-            var time = formatTime(a.duration);
+            var curtime = player.formatTime(a.currentTime, false);
+            var time = player.formatTime(a.duration, false);
             position.innerHTML = curtime + " / " + time;
-            loud = getRMS(dataArray);
+            loud = player.getRMS(dataArray);
             ctx.clearRect(0, 0, WIDTH, HEIGHT);
             ctx.fillStyle = "#000000";
             ctx.fillRect(0, 0, WIDTH, HEIGHT);
@@ -116,3 +118,4 @@ window.player = {
         });
     },
 };
+window.player = player;
