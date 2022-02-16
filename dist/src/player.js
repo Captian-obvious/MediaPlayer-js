@@ -70,6 +70,13 @@ class player {
         if (album.style.backgroundImage != "url(../../images/default/default-album-icon.png)") {
             album.style.backgroundImage = "url(../../images/default/default-album-icon.png)";
         };
+        var tags = MediaPlayer.readFile(file);
+        if (filetitle.textContent != tags.Artist" - " + tags.Title) {
+            filetitle.textContent = tags.Artist" - " + tags.Title;
+        };
+        if (album.style.backgroundImage != "url("+tags.image+")") {
+            album.style.backgroundImage = "url("+tags.image+")";
+        };
         a.play();
         var context = new AudioContext;
         console.log(context);
