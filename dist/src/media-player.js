@@ -1,5 +1,5 @@
 var ID3 = require('jsmediatags', true);
-class MediaPlayerElementNode {
+var MediaPlayerElementNode = {
     volume = 0,
     sourceElement = null,
     currentTrack = 0,
@@ -38,8 +38,8 @@ class MediaPlayerElementNode {
         return returns;
     },
     createPlayer: function(container) {
-        container.innerHTML = `
-        <label id="filename" for="thefile">Choose Audio file or drag file here.</label>
+        document.getElementById(container).innerHTML = `
+        <label id="filename" for="thefile">Choose Audio file.</label>
         <div id="dropzone"></div>
         <canvas id="canvas"></canvas>
         <div id="main">
@@ -55,7 +55,7 @@ class MediaPlayerElementNode {
             </div>
         </div>
         `
-        require("./player.js")
+        require("../player.js");
     },
 };
 window.MediaPlayer = MediaPlayerElementNode;
