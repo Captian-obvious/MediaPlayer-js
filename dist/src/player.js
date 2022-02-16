@@ -29,7 +29,7 @@ class player {
         // Calculate square.
         for (var i = 0; i < n; i++) {
             square += Math.pow(arr[i], 2);
-        }
+        };
 
         // Calculate Mean.
         mean = square / n;
