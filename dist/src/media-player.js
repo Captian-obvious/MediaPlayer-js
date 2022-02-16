@@ -1,4 +1,5 @@
-var ID3 = require('jsmediatags', true);
+require('jsmediatags');
+var ID3 = window.jsmediatags
 var MediaPlayerElementNode = {
     volume = 0,
     sourceElement = null,
@@ -48,7 +49,7 @@ var MediaPlayerElementNode = {
             </div>
         </div>
         `
-        require("../player.js");
+        require("../dist/src/player.js");
     },
 };
 window.MediaPlayer = MediaPlayerElementNode;
