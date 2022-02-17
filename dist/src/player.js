@@ -29,11 +29,7 @@ window.player = {
         return rms;
     },
     playFile: function(file) {
-        var a = window.current
-        if (typeof(a)==="undefined") {
-            a = new Audio();
-            window.current = a
-        };
+        var a = new Audio();
         var button = document.getElementById("MediaPlayerIcon-icon-play");
         button.setAttribute("data-mediathumb-url", URL.createObjectURL(file));
         var album = document.getElementById('album');
