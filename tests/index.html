@@ -9,13 +9,15 @@
         <input type="file" id="thefile"/>
         <div id="container"></div>
         <script>
-            MediaPlayer.createPlayer('container');
-            if (typeof(window.player)==='undefined') {
+            window.onload = function() {
                 MediaPlayer.createPlayer('container');
+                if (typeof(window.player)==='undefined') {
+                    MediaPlayer.createPlayer('container');
+                };
+                document.getElementById("thefile").addEventListener('change', function() {
+                    player.playFile(this.files[0]);
+                });
             };
-            document.getElementById("thefile").addEventListener('change', function() {
-                player.playFile(this.files[0]);
-            });
         </script>
     </body>
 </html>
