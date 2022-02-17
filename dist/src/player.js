@@ -1,6 +1,5 @@
 window.player = {
-    maxRMS = 0,
-    name='player',
+    maxRMS: 0,
     formatTime: function(x) {
         var minutes = Math.floor(x/60);
         var seconds = Math.floor(x-minutes*60);
