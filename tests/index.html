@@ -3,14 +3,15 @@
         <link rel="stylesheet" href="../dist/css/player.css" />
         <script src="/js/require.js"></script>
         <script src="../dist/src/media-player.js"></script>
+        <script src="../dist/src/player.js"></script>
     </head>
     <body>
         <input type="file" id="thefile"/>
         <div id="container"></div>
-        <script nounce="88478347399hwehe888663ehf873636535">
+        <script>
             MediaPlayer.createPlayer('container');
             if (typeof(window.player)==='undefined') {
-                MediaPlayer.createPlayer(document.getElementById('container'));
+                MediaPlayer.createPlayer('container');
             };
             document.getElementById("thefile").addEventListener('change', function() {
                 player.playFile(this.files[0]);
