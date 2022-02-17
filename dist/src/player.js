@@ -40,7 +40,7 @@ window.player = {
         a.addEventListener('play', function() {
             button.className="MediaPlayerIcon icon-play";
         });
-        a.addEventListener('pause' function() {
+        a.addEventListener('pause', function() {
             button.className="MediaPlayerIcon icon-pause";
         });
         button.addEventListener('click',function() {
