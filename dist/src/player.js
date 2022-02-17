@@ -1,23 +1,13 @@
 window.player = {
     maxRMS = 0,
-    formatTime: function(x,h) {
-        let returns = {};
+    name='player',
+    formatTime: function(x) {
         var minutes = Math.floor(x/60);
-        var hours = Math.floor(minutes/60);
         var seconds = Math.floor(x-minutes*60);
         if (seconds < 10) {
             seconds = "0"+seconds;
         };
-        if (h === true && minutes < 10) {
-            minutes = Math.floor(minutes-hours*60);
-            minutes = "0"+minutes;
-        };
-        if (h === true) {
-            returns = hours+":"+minutes+":"+seconds;
-        }else{
-            returns = minutes+":"+seconds;
-        };
-        return returns;
+        return minutes+":"+seconds;
     },
     getRMS: function(arr) {
         var square = 0;
