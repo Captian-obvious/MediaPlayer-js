@@ -1,5 +1,5 @@
 require('jsmediatags');
-var ID3 = window.jsmediatags
+var ID3 = window.jsmediatags;
 var MediaPlayerElementNode = {
     volume = 0,
     sourceElement = null,
@@ -13,7 +13,7 @@ var MediaPlayerElementNode = {
                 var format = tag.tags.picture.format;
                 var url = "";
                 if (data.length != 0 && format != null) {
-                    let str = "";
+                    var str = "";
                     for (var o = 0; o < data.length; o++) {
                         str += String.fromCharCode(data[o]);
                     }
