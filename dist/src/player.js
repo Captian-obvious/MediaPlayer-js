@@ -29,8 +29,10 @@ window.player = {
         return rms;
     },
     playFile: function(file) {
-        if (typeof(window.a)==='undefined') {
-            window.a = new Audio();
+        var a = window.current
+        if (typeof(a)==="undefined") {
+            a = new Audio();
+            window.current = a
         };
         var button = document.getElementById("MediaPlayerIcon-icon-play");
         a.addEventListener('play', function() {
@@ -67,7 +69,7 @@ window.player = {
             album.style.backgroundImage = "url("+tags.image+")";
         };
         a.play();
-        var context = new AudioContext;
+        var context = new AudioContext();
         console.log(context);
         var vol = document.getElementById('MediaPlayerControl-volume');
         var position = document.getElementById('time-position');
