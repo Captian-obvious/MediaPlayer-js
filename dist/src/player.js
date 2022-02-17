@@ -35,6 +35,12 @@ window.player = {
             window.current = a
         };
         var button = document.getElementById("MediaPlayerIcon-icon-play");
+        button.setAttribute("data-mediathumb-url", URL.createObjectURL(file));
+        var album = document.getElementById('album');
+        var filetitle = document.getElementById('filename');
+        var SRC = button.getAttribute("data-mediathumb-url");
+        audio.src = SRC;
+        audio.load();
         a.addEventListener('play', function() {
             button.className="MediaPlayerIcon icon-play";
         });
@@ -48,12 +54,6 @@ window.player = {
                 a.play();
             };
         });
-        button.setAttribute("data-mediathumb-url", URL.createObjectURL(file));
-        var album = document.getElementById('album');
-        var filetitle = document.getElementById('filename');
-        var SRC = button.getAttribute("data-mediathumb-url");
-        audio.src = SRC;
-        audio.load();
         var input = file.name;
         if (filetitle.textContent != "Unknown Artist - " + file.name) {
             filetitle.textContent = "Unknown Artist - " + file.name;
