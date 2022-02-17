@@ -35,7 +35,7 @@ window.player = {
         mean = square / n;
         // Calculate Root.
         val = Math.sqrt(mean);
-        player.maxRMS = Math.max(rms, player.maxRMS)
+        player.maxRMS = Math.max(val, player.maxRMS)
         rms = (val/player.maxRMS)*255
         return rms;
     },
