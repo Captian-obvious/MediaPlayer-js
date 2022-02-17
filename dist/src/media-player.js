@@ -1,9 +1,8 @@
 require('jsmediatags');
 var ID3 = window.jsmediatags;
 var MediaPlayerElementNode = {
-    volume = 0,
-    sourceElement = null,
-    currentTrack = 0,
+    volume: 0,
+    currentTrack: 0,
     readFile: function(file) {
         var returns = null;
         ID3.read(file, {
@@ -20,9 +19,9 @@ var MediaPlayerElementNode = {
                     url = "data:" + format + ";base64," + window.btoa(str);
                 };
                 returns = {
-                    title = tag.tags.title,
-                    artist = tag.tags.artist,
-                    image = url,
+                    title: tag.tags.title,
+                    artist: tag.tags.artist,
+                    image: url,
                 };
             },
             onError: function (error) {
@@ -49,5 +48,5 @@ var MediaPlayerElementNode = {
         </div>
         `
     },
-};
-window.MediaPlayer = MediaPlayerElementNode;
+}
+window.MediaPlayer = MediaPlayerElementNode
