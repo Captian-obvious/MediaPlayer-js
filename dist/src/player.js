@@ -1,7 +1,7 @@
 window.player = {
     maxRMS = 0,
     formatTime: function(x,h) {
-        var returns = null;
+        let returns = {};
         var minutes = Math.floor(x/60);
         var hours = Math.floor(minutes/60);
         var seconds = Math.floor(x-minutes*60);
