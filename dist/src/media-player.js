@@ -32,9 +32,8 @@ var MediaPlayerElementNode = {
         return returns;
     },
     createPlayer: function(container) {
-        document.getElementById(container).innerHTML = `
+        document.getElementById(''+container).innerHTML = `
         <label id="filename" for="thefile">Choose Audio file.</label>
-        <div id="dropzone"></div>
         <canvas id="canvas"></canvas>
         <div id="main">
             <div id="album">
@@ -49,7 +48,6 @@ var MediaPlayerElementNode = {
             </div>
         </div>
         `
-        require("../dist/src/player.js");
     },
 };
 window.MediaPlayer = MediaPlayerElementNode;
