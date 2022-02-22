@@ -35,8 +35,8 @@ window.player = {
         var album = document.getElementById('album');
         var filetitle = document.getElementById('filename');
         var SRC = button.getAttribute("data-mediathumb-url");
-        audio.src = SRC;
-        audio.load();
+        a.src = SRC;
+        a.load();
         a.addEventListener('play', function() {
             button.className="MediaPlayerIcon icon-play";
         });
