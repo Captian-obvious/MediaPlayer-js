@@ -69,7 +69,7 @@ window.player = {
         console.log(context);
         var vol = document.getElementById('MediaPlayerControl-volume');
         var position = document.getElementById('time-position');
-        var src = context.createMediaElementSource(audio);
+        var src = context.createMediaElementSource(a);
         var analyser = context.createAnalyser();
         var loud = 0;
         var canvas = document.getElementById("canvas");
