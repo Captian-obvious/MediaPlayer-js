@@ -119,10 +119,10 @@ window.player = {
         function renderFrame() {
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(dataArray);
-            var curtime = player.formatTime(a.currentTime);
-            var time = player.formatTime(a.duration);
+            var curtime = this.formatTime(a.currentTime);
+            var time = this.formatTime(a.duration);
             position.innerHTML = curtime + " / " + time;
-            loud = player.getRMS(dataArray);
+            loud = this.getRMS(dataArray);
             ctx.clearRect(0, 0, WIDTH, HEIGHT);
             ctx.fillStyle = "#000000";
             ctx.fillRect(0, 0, WIDTH, HEIGHT);
