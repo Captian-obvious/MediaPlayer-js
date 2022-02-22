@@ -3,7 +3,7 @@ window.MediaPlayer = {
     volume: 0,
     currentTrack: 0,
     readFile: function(file) {
-        var returns = null;
+        var tags = {}
         var ID3 = window.jsmediatags;
         ID3.read(file, {
             onSuccess: function (tag) {
@@ -18,7 +18,7 @@ window.MediaPlayer = {
                     }
                     url = "data:" + format + ";base64," + window.btoa(str);
                 };
-                returns = {
+                tags = {
                     title: tag.tags.title,
                     artist: tag.tags.artist,
                     image: url,
@@ -28,7 +28,7 @@ window.MediaPlayer = {
                 console.log(error);
             },
         });
-        return returns;
+        return tags;
     },
     createPlayer: function(container) {
         document.getElementById(''+container).innerHTML = `
