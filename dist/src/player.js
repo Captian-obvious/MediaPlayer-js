@@ -33,7 +33,10 @@ window.player = {
         var button = document.getElementById("MediaPlayerIcon-icon-play");
         button.setAttribute("data-mediathumb-url", URL.createObjectURL(file));
         var album = document.getElementById('album');
+        var vol = document.getElementById('MediaPlayerControl-volume');
         var filetitle = document.getElementById('filename');
+        var dur = document.getElementById('MediaPlayerControl-seekbar')
+        var setting = document.getElementById('MediaPlayerIcon-icon-volume')
         var SRC = button.getAttribute("data-mediathumb-url");
         a.src = SRC;
         a.load();
@@ -43,12 +46,32 @@ window.player = {
         a.addEventListener('pause', function() {
             button.className="MediaPlayerIcon icon-play";
         });
-        button.addEventListener('click',function() {
-            if (button.className=="MediaPlayerIcon icon-play") {
-                a.pause();
-            }else{
+        dur.addEventListener("change", function () {
+            a.currentTime = dur.value;
+        });
+        setting.addEventListener("click", function () {
+            if (vol.hidden == true) {
+                vol.hidden = false;
+            } else {
+                vol.hidden = true;
+            }
+        });
+        a.addEventListener("timeupdate", function () {
+            dur.value = a.currentTime;
+            dur.max = a.duration;
+        });
+        button.addEventListener("click", function () {
+            if (this.className == "MediaPlayerIcon icon-pause") {
+                this.className = "MediaPlayerIcon icon-play";
+                a.pause()
+            } else {
+                this.className = "MediaPlayerIcon icon-pause";
                 a.play();
             };
+            a.addEventListener("ended", function () {
+                button.className = "MediaPlayerIcon icon-play";
+                dur.value = dur.max;
+            });
         });
         var input = file.name;
         if (filetitle.textContent != "Unknown Artist - " + file.name) {
@@ -67,7 +90,6 @@ window.player = {
         a.play();
         var context = new AudioContext();
         console.log(context);
-        var vol = document.getElementById('MediaPlayerControl-volume');
         var position = document.getElementById('time-position');
         var src = context.createMediaElementSource(a);
         var analyser = context.createAnalyser();
