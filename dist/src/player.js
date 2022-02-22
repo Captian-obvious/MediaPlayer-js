@@ -24,8 +24,8 @@ window.player = {
         mean = square / n;
         // Calculate Root.
         val = Math.sqrt(mean);
-        player.maxRMS = Math.max(val, player.maxRMS)
-        rms = (val/player.maxRMS)*255
+        player.maxRMS = Math.max(val, this.maxRMS)
+        rms = (val/this.maxRMS)*255
         return rms;
     },
     playFile: function(file) {
@@ -94,7 +94,7 @@ window.player = {
         var src = context.createMediaElementSource(a);
         var analyser = context.createAnalyser();
         var loud = 0;
-        player.maxRMS = 0;
+        this.maxRMS = 0;
         var canvas = document.getElementById("canvas");
         var ctx = canvas.getContext("2d");
         src.connect(analyser);
