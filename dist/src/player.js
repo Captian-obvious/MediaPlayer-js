@@ -38,10 +38,10 @@ window.player = {
         a.src = SRC;
         a.load();
         a.addEventListener('play', function() {
-            button.className="MediaPlayerIcon icon-play";
+            button.className="MediaPlayerIcon icon-pause";
         });
         a.addEventListener('pause', function() {
-            button.className="MediaPlayerIcon icon-pause";
+            button.className="MediaPlayerIcon icon-play";
         });
         button.addEventListener('click',function() {
             if (button.className=="MediaPlayerIcon icon-play") {
@@ -65,7 +65,7 @@ window.player = {
             album.style.backgroundImage = "url("+tags.image+")";
         };
         a.play();
-        var context = new AudioContext();
+        var context = new AudioContext;
         console.log(context);
         var vol = document.getElementById('MediaPlayerControl-volume');
         var position = document.getElementById('time-position');
