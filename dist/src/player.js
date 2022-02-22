@@ -98,8 +98,8 @@ window.player = {
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(dataArray);
             analyser.getByteTimeDomainData(dataArray1);
-            var curtime = player.formatTime(a.currentTime, false);
-            var time = player.formatTime(a.duration, false);
+            var curtime = player.formatTime(a.currentTime);
+            var time = player.formatTime(a.duration);
             position.innerHTML = curtime + " / " + time;
             loud = player.getRMS(dataArray);
             ctx.clearRect(0, 0, WIDTH, HEIGHT);
