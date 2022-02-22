@@ -65,13 +65,14 @@ window.player = {
             album.style.backgroundImage = "url("+tags.image+")";
         };
         a.play();
-        var context = new AudioContext;
+        var context = new AudioContext();
         console.log(context);
         var vol = document.getElementById('MediaPlayerControl-volume');
         var position = document.getElementById('time-position');
         var src = context.createMediaElementSource(a);
         var analyser = context.createAnalyser();
         var loud = 0;
+        player.maxRMS = 0;
         var canvas = document.getElementById("canvas");
         var ctx = canvas.getContext("2d");
         src.connect(analyser);
@@ -88,7 +89,6 @@ window.player = {
         console.log(bufferLength);
         console.log(analyser);
         var dataArray = new Uint8Array(bufferLength);
-        var dataArray1 = new Uint8Array(fft_Size);
         var maxHeight = canvas.height / 2;
         var WIDTH = canvas.width;
         var HEIGHT = canvas.height;
@@ -97,7 +97,6 @@ window.player = {
         function renderFrame() {
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(dataArray);
-            analyser.getByteTimeDomainData(dataArray1);
             var curtime = player.formatTime(a.currentTime);
             var time = player.formatTime(a.duration);
             position.innerHTML = curtime + " / " + time;
