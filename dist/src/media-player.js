@@ -1,10 +1,10 @@
-require('jsmediatags');
-var ID3 = window.jsmediatags;
-var MediaPlayerElementNode = {
+require('https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js');
+window.MediaPlayer = {
     volume: 0,
     currentTrack: 0,
     readFile: function(file) {
         var returns = null;
+        var ID3 = window.jsmediatags;
         ID3.read(file, {
             onSuccess: function (tag) {
                 console.log(tag);
@@ -49,4 +49,3 @@ var MediaPlayerElementNode = {
         `
     },
 }
-window.MediaPlayer = MediaPlayerElementNode
