@@ -54,8 +54,8 @@ window.player = {
         if (filetitle.textContent != "Unknown Artist - " + file.name) {
             filetitle.textContent = "Unknown Artist - " + file.name;
         };
-        if (album.style.backgroundImage != "url(../../images/default/default-album-icon.png)") {
-            album.style.backgroundImage = "url(../../images/default/default-album-icon.png)";
+        if (album.style.backgroundImage != "url(images/default/default-album-icon.png)") {
+            album.style.backgroundImage = "url(images/default/default-album-icon.png)";
         };
         var tags = MediaPlayer.readFile(file);
         if (filetitle.textContent != tags.artist+" - " + tags.title) {
