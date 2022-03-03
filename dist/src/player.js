@@ -1,33 +1,4 @@
 window.player = {
-    maxRMS: 0,
-    formatTime: function(x) {
-        var minutes = Math.floor(x/60);
-        var seconds = Math.floor(x-minutes*60);
-        if (seconds < 10) {
-            seconds = "0"+seconds;
-        };
-        return minutes+":"+seconds;
-    },
-    getRMS: function(arr) {
-        var square = 0;
-        var mean = 0;
-        var val = 0;
-        var rms = 0;
-        var n = arr.length;
-
-        // Calculate square.
-        for (var i = 0; i < n; i++) {
-            square += Math.pow(arr[i], 2);
-        };
-
-        // Calculate Mean.
-        mean = square / n;
-        // Calculate Root.
-        val = Math.sqrt(mean);
-        this.maxRMS = Math.max(val, this.maxRMS)
-        rms = (val/this.maxRMS)*255
-        return rms;
-    },
     playFile: function(file) {
         var a = new Audio();
         var button = document.getElementById("MediaPlayerIcon-icon-play");
@@ -119,10 +90,10 @@ window.player = {
         function renderFrame() {
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(dataArray);
-            var curtime = player.formatTime(a.currentTime);
-            var time = player.formatTime(a.duration);
+            var curtime = MediaPlayer.formatTime(a.currentTime);
+            var time = MediaPlayer.formatTime(a.duration);
             position.innerHTML = curtime + " / " + time;
-            loud = player.getRMS(dataArray);
+            loud = MediaPlayer.getRMS(dataArray);
             ctx.clearRect(0, 0, WIDTH, HEIGHT);
             ctx.fillStyle = "#000000";
             ctx.fillRect(0, 0, WIDTH, HEIGHT);
