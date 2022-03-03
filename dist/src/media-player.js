@@ -49,6 +49,14 @@ window.MediaPlayer = {
         rms = (val/this.maxRMS)*255
         return rms;
     },
+    formatTime: function(x) {
+        var minutes = Math.floor(x/60);
+        var seconds = Math.floor(x-minutes*60);
+        if (seconds < 10) {
+            seconds = "0"+seconds;
+        };
+        return minutes+":"+seconds;
+    },
     createPlayer: function(container) {
         document.getElementById(''+container).innerHTML = `
         <label id="filename" for="thefile">Choose Audio file.</label>
