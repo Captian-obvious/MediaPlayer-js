@@ -40,7 +40,6 @@ window.player = {
         var SRC = button.getAttribute("data-mediathumb-url");
         a.src = SRC;
         a.load();
-        var obj = this
         a.addEventListener('play', function() {
             button.className="MediaPlayerIcon icon-pause";
         });
@@ -120,10 +119,10 @@ window.player = {
         function renderFrame() {
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(dataArray);
-            var curtime = obj.formatTime(a.currentTime);
-            var time = obj.formatTime(a.duration);
+            var curtime = player.formatTime(a.currentTime);
+            var time = player.formatTime(a.duration);
             position.innerHTML = curtime + " / " + time;
-            loud = obj.getRMS(dataArray);
+            loud = player.getRMS(dataArray);
             ctx.clearRect(0, 0, WIDTH, HEIGHT);
             ctx.fillStyle = "#000000";
             ctx.fillRect(0, 0, WIDTH, HEIGHT);
