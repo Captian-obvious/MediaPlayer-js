@@ -1,10 +1,11 @@
 require('https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js');
+window.ID3 = window.jsmediatags
 window.MediaPlayer = {
     volume: 0,
+    maxRMS: 0,
     currentTrack: 0,
     readFile: function(file) {
         var tags = {};
-        var ID3 = window.jsmediatags;
         ID3.read(file, {
             onSuccess: function (tag) {
                 console.log(tag);
@@ -27,6 +28,26 @@ window.MediaPlayer = {
             },
         });
         return tags;
+    },
+    getRMS: function(arr) {
+        var square = 0;
+        var mean = 0;
+        var val = 0;
+        var rms = 0;
+        var n = arr.length;
+
+        // Calculate square.
+        for (var i = 0; i < n; i++) {
+            square += Math.pow(arr[i], 2);
+        };
+
+        // Calculate Mean.
+        mean = square / n;
+        // Calculate Root.
+        val = Math.sqrt(mean);
+        this.maxRMS = Math.max(val, this.maxRMS)
+        rms = (val/this.maxRMS)*255
+        return rms;
     },
     createPlayer: function(container) {
         document.getElementById(''+container).innerHTML = `
