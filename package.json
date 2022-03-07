@@ -1,3 +1,6 @@
 {
-    "homepage": "https://github.com/owner/project#readme"
+    "name": "MediaPlayer",
+    "description":"Basic Media Player and Video is a WIP feature, enjoy nontheless"
+    "version": [1, 0, 0]
+    "homepage": "https://github.com/owner/project#readme",
 }
