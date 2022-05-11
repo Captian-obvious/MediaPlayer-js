@@ -97,6 +97,7 @@ window.player = {
             },
         });
         a.play();
+        this.replaceurl("player=true&input="+input)
         var context = new AudioContext();
         console.log(context);
         var position = document.getElementById('time-position');
