@@ -14,9 +14,12 @@ window.player = {
                     }
                     url = "data:" + format + ";base64," + window.btoa(str);
                 };
-                tags.image = url
-                tags.title = tag.tags.title
-                tags.artist = tag.tags.artist
+                if (filetitle.textContent != tags.artist+" - " + tags.title) {
+                    filetitle.textContent = tags.artist+" - " + tags.title;
+                };
+                if (album.style.backgroundImage != "url("+tags.image+")") {
+                    album.style.backgroundImage = "url("+tags.image+")";
+                };
             },
             onError: function (error) {
                 console.log(error);
@@ -93,13 +96,30 @@ window.player = {
         if (album.style.backgroundImage != "url(images/default-album-icon.png)") {
             album.style.backgroundImage = "url(images/default-album-icon.png)";
         };
-        var tags = MediaPlayer.readFile(file);
-        if (filetitle.textContent != tags.artist+" - " + tags.title) {
-            filetitle.textContent = tags.artist+" - " + tags.title;
-        };
-        if (album.style.backgroundImage != "url("+tags.image+")") {
-            album.style.backgroundImage = "url("+tags.image+")";
-        };
+        ID3.read(file, {
+            onSuccess: function (tag) {
+                console.log(tag);
+                var data = tag.tags.picture.data;
+                var format = tag.tags.picture.format;
+                var url = "";
+                if (data.length != 0 && format != null) {
+                    var str = "";
+                    for (var o = 0; o < data.length; o++) {
+                        str += String.fromCharCode(data[o]);
+                    }
+                    url = "data:" + format + ";base64," + window.btoa(str);
+                };
+                if (filetitle.textContent != tags.artist+" - " + tags.title) {
+                    filetitle.textContent = tags.artist+" - " + tags.title;
+                };
+                if (album.style.backgroundImage != "url("+tags.image+")") {
+                    album.style.backgroundImage = "url("+tags.image+")";
+                };
+            },
+            onError: function (error) {
+                console.log(error);
+            },
+        });
         a.play();
         var context = new AudioContext();
         console.log(context);
