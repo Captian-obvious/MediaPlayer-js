@@ -1,3 +1,4 @@
+window.ID3 = window.jsmediatags
 window.player = {
     replaceurl: function (paramText) {
         var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + paramText;
