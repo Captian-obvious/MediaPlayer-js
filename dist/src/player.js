@@ -33,6 +33,12 @@ window.player = {
         a.src = SRC;
         a.load();
         var input = file.name;
+        if (filetitle.textContent != "Unknown Artist - " + file.name) {
+            filetitle.textContent = "Unknown Artist - " + file.name;
+        };
+        if (album.style.backgroundImage != "url(/MediaPlayer-js/dist/images/default-album-icon.png)") {
+            album.style.backgroundImage = "url(/MediaPlayer-js/dist/images/default-album-icon.png))";
+        };
         ID3.read(file, {
             onSuccess: function (tag) {
                 console.log(tag);
@@ -57,12 +63,6 @@ window.player = {
                 console.log(error);
             },
         });
-        if (filetitle.textContent != "Unknown Artist - " + file.name) {
-            filetitle.textContent = "Unknown Artist - " + file.name;
-        };
-        if (album.style.backgroundImage != "url(images/default-album-icon.png)") {
-            album.style.backgroundImage = "url(images/default-album-icon.png)";
-        };
         a.play();
         this.replaceurl("player=true&input="+input)
         var context = new AudioContext();
