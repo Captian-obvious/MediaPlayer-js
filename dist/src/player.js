@@ -1,32 +1,4 @@
 window.player = {
-    readFile: function(file) {
-        var tags = {};
-        ID3.read(file, {
-            onSuccess: function (tag) {
-                console.log(tag);
-                var data = tag.tags.picture.data;
-                var format = tag.tags.picture.format;
-                var url = "";
-                if (data.length != 0 && format != null) {
-                    var str = "";
-                    for (var o = 0; o < data.length; o++) {
-                        str += String.fromCharCode(data[o]);
-                    }
-                    url = "data:" + format + ";base64," + window.btoa(str);
-                };
-                if (filetitle.textContent != tags.artist+" - " + tags.title) {
-                    filetitle.textContent = tags.artist+" - " + tags.title;
-                };
-                if (album.style.backgroundImage != "url("+tags.image+")") {
-                    album.style.backgroundImage = "url("+tags.image+")";
-                };
-            },
-            onError: function (error) {
-                console.log(error);
-            },
-        });
-        return tags;
-    },
     getRMS: function(arr) {
         var square = 0;
         var mean = 0;
