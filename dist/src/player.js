@@ -28,7 +28,7 @@ window.player = {
         var vol = document.getElementById('MediaPlayerControl-volume');
         var filetitle = document.getElementById('filename');
         var dur = document.getElementById('MediaPlayerControl-seekbar')
-        var setting = document.getElementById('MediaPlayerIcon-icon-volume')
+        var setting = document.getElementById('MediaPlayerIcon icon-volume')
         var SRC = button.getAttribute("data-mediathumb-url");
         a.src = SRC;
         a.load();
