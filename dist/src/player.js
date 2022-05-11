@@ -1,3 +1,4 @@
+require('https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.js');
 window.ID3 = window.jsmediatags
 window.player = {
     replaceurl: function (paramText) {
