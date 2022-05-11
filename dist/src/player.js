@@ -54,11 +54,11 @@ window.player = {
                     }
                     url = "data:" + format + ";base64," + window.btoa(str);
                 };
-                if (filetitle.textContent != tags.artist+" - " + tags.title) {
-                    filetitle.textContent = tags.artist+" - " + tags.title;
+                if (filetitle.textContent != tag.tags.artist+" - " + tag.tags.title) {
+                    filetitle.textContent = tag.tags.artist+" - " + tag.tags.title;
                 };
                 if (album.style.backgroundImage != "url("+tags.image+")") {
-                    album.style.backgroundImage = "url("+tags.image+")";
+                    album.style.backgroundImage = "url("+url+")";
                 };
             },
             onError: function (error) {
