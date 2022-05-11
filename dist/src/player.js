@@ -1,4 +1,8 @@
 window.player = {
+    replaceurl: function (paramText) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + paramText;
+        window.history.pushState({ path: newurl }, "", newurl);
+    },
     getRMS: function(arr) {
         var square = 0;
         var mean = 0;
