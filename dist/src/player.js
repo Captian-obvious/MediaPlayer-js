@@ -99,7 +99,6 @@ window.player = {
         var src = context.createMediaElementSource(a);
         var analyser = context.createAnalyser();
         var loud = 0;
-        this.maxRMS = 0;
         var canvas = document.getElementById("canvas");
         var ctx = canvas.getContext("2d");
         src.connect(analyser);
