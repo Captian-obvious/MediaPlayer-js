@@ -1,4 +1,46 @@
 window.player = {
+    readFile: function(file) {
+        var tags = {};
+        ID3.read(file, {
+            onSuccess: function (tag) {
+                console.log(tag);
+                var data = tag.tags.picture.data;
+                var format = tag.tags.picture.format;
+                var url = "";
+                if (data.length != 0 && format != null) {
+                    var str = "";
+                    for (var o = 0; o < data.length; o++) {
+                        str += String.fromCharCode(data[o]);
+                    }
+                    url = "data:" + format + ";base64," + window.btoa(str);
+                };
+                tags.image = url
+                tags.title = tag.tags.title
+                tags.artist = tag.tags.artist
+            },
+            onError: function (error) {
+                console.log(error);
+            },
+        });
+        return tags;
+    },
+    getRMS: function(arr) {
+        var square = 0;
+        var mean = 0;
+        var val = 0;
+        var rms = 0;
+        var n = arr.length;
+        // Calculate square.
+        for (var i = 0; i < n; i++) {
+            square += Math.pow(arr[i], 2);
+        };
+        // Calculate Mean.
+        mean = square / n;
+        // Calculate Root.
+        val = Math.sqrt(mean);
+        rms = val
+        return rms;
+    },
     playFile: function(file) {
         var a = new Audio();
         var button = document.getElementById("MediaPlayerIcon-icon-play");
